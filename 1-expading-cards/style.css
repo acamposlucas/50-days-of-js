@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  background-color: #f8f8ff;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  gap: 1rem;
+  width: 80vw;
+}
+
+.panel {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 0.5;
+  height: 80vh;
+  border-radius: 24px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+  font-size: 2rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+
+.panel:nth-child(1) {
+  background-image: url("https://images.unsplash.com/photo-1470376619031-a6791e534bf0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-position-x: right;
+}
+
+.panel:nth-child(2) {
+  background-image: url("https://images.unsplash.com/photo-1560090995-01632a28895b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
+}
+
+.panel:nth-child(3) {
+  background-image: url("https://images.unsplash.com/photo-1487491506942-373c8f7a7ad5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
+}
+
+.panel:nth-child(4) {
+  background-image: url("https://images.unsplash.com/photo-1528802704307-fb7d0f29ad0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
+}
+
+.panel:nth-child(5) {
+  background-image: url("https://images.unsplash.com/photo-1558617320-e695f0d420de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+}

@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  background-color: #eafbff;
+  background-image: linear-gradient(
+    to bottom,
+    #eafbff 0%,
+    #eafbff 50%,
+    #5290f9 50%,
+    #5290f9 100%
+  );
+  display: flex;
+  font-family: "Muli", sans-serif;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+nav {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem;
+  height: 4.5rem;
+  width: 5rem;
+  transition: width 0.5s linear;
+}
+
+nav[aria-expanded="true"] {
+  width: 21rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 0.875rem;
+  padding: 0;
+  margin: 0;
+  width: 0;
+  transition: width 0.5s linear;
+}
+
+nav[aria-expanded="true"] ul {
+  width: 100%;
+}
+
+nav ul li {
+  opacity: 0;
+  transform: rotateY(0deg);
+  transition: transform 0.5s linear, opacity 0.5s linear;
+}
+
+nav[aria-expanded="true"] ul li {
+  opacity: 1;
+  transform: rotateY(360deg);
+}
+
+nav ul li a {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+
+.icon {
+  aspect-ratio: 1;
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  margin: 0;
+
+  width: 32px;
+}
+
+.icon::after,
+.icon::before {
+  background-color: #5290f9;
+  content: "";
+  display: block;
+  height: 2px;
+  position: absolute;
+  transition: transform 0.5s linear;
+  width: 24px;
+}
+
+.icon::after {
+  inset: 10px 0 0 5px;
+}
+
+.icon::before {
+  inset: auto 0 10px 5px;
+}
+
+nav[aria-expanded="true"] .icon::after {
+  transform: rotate(-765deg) translateY(5.5px);
+}
+
+nav[aria-expanded="true"] .icon::before {
+  transform: rotate(765deg) translateY(-5.5px);
+}

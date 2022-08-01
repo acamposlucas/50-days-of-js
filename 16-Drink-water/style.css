@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+:root {
+  --border-color: #144fc6;
+  --fill-color: #6ab3f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  background-color: #3494e4;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+h1 {
+  margin: 10px 0 0;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+}
+
+form label input {
+  display: block;
+  margin-block-start: 0.5rem;
+  margin-inline: auto;
+  -moz-appearance: textfield;
+  width: 80px;
+}
+
+form button {
+  background-color: #fff;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  color: #144fc6;
+  cursor: pointer;
+  font-size: 18px;
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  text-transform: uppercase;
+  transition: all 0.2s linear;
+}
+
+form button:hover {
+  background-color: #3494e4;
+  border-color: #fff;
+  color: #fff;
+}
+
+h3 {
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+.cup {
+  background-color: #fff;
+  border: 4px solid var(--border-color);
+  border-radius: 0 0 40px 40px;
+  color: var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 330px;
+  margin: 30px 0;
+  overflow: hidden;
+  width: 150px;
+}
+
+.cup.cup-small {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0 0 15px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  justify-content: center;
+  height: 95px;
+  margin: 5px;
+  text-align: center;
+  transition: 0.3s ease;
+  width: 50px;
+}
+
+.cup.cup-small:hover {
+  background-color: var(--fill-color);
+}
+
+.cup.cup-small.full {
+  background-color: var(--fill-color);
+  color: #fff;
+}
+
+.cups {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 500px;
+}
+
+.remained {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.remained span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.remained small {
+  font-size: 12px;
+}
+
+.percentage {
+  align-items: center;
+  background-color: var(--fill-color);
+  display: flex;
+  font-size: 30px;
+  font-weight: 600;
+  justify-content: center;
+  height: 0;
+  transition: 0.3s ease;
+}
+
+.text {
+  text-align: center;
+  margin: 0 0 5px;
+}

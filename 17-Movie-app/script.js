@@ -6,15 +6,44 @@ const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=35e8e05f9b
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const main = document.getElementById("main");
+const nav = document.getElementById("nav");
+
+const PREVIOUS_PAGE = document.getElementById("previousPage");
+const NEXT_PAGE = document.getElementById("nextPage");
+const PAGE = document.getElementById("page");
+
+let currentPage = 1;
+let nextPage = currentPage + 1;
+let previousPage = currentPage - 1;
+let lastUrl = "";
+let totalPages = 100;
 
 getMovies(API_KEY);
 
 async function getMovies(url) {
-  const res = await fetch(url);
+  lastUrl = url;
+  const res = await fetch(lastUrl);
   const data = await res.json();
+
+  currentPage = data.page;
+  nextPage = currentPage + 1;
+  previousPage = currentPage - 1;
+  lastUrl = "";
+  totalPages = data.total_pages;
 
   return showMovies(data.results);
 }
+
+NEXT_PAGE.addEventListener("click", () => {
+  const url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=35e8e05f9bfa0667a268312efa9b3e52&page=${nextPage}`;
+  getMovies(url);
+});
+
+PREVIOUS_PAGE.addEventListener("click", () => {
+  const url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=35e8e05f9bfa0667a268312efa9b3e52&page=${previousPage}`;
+
+  getMovies(url);
+});
 
 function showMovies(movies) {
   main.innerHTML = "";

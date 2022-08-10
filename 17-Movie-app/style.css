@@ -43,7 +43,7 @@ header .search:focus {
   background-color: var(--primary-color);
 }
 
-main {
+.main {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -114,4 +114,10 @@ main {
 
 .movie:hover .overview {
   transform: translateY(0);
+}
+
+.nav {
+  width: fit-content;
+  margin-inline: auto;
+  color: white;
 }

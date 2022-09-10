@@ -69,7 +69,7 @@ body {
 	left: 50%;
 	height: 64px;
 	width: 4px;
-	transition: all 0.5s ease-in;
+
 	transform-origin: bottom center;
 }
 

@@ -22,39 +22,32 @@ toggleEl.addEventListener("click", (e) => {
 	}
 });
 
-function setTime() {
-	const time = new Date();
-	const hours = time.getHours();
-	const hoursForClock = hours % 12;
-	const minutes = time.getMinutes();
-	const seconds = time.getSeconds();
-
-	hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(
-		hoursForClock,
-		0,
-		11,
-		0,
-		360
-	)}deg)`;
-	minutesEl.style.transform = `translate(-50%, -100%) rotate(${scale(
-		minutes,
-		0,
-		59,
-		0,
-		360
-	)}deg)`;
-	secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(
-		seconds,
-		0,
-		59,
-		0,
-		360
-	)}deg)`;
-
-	timeEl.innerHTML = `${hours}:${minutes < 10 ? `0${minutes}` : minutes}`;
+function digitalClock(time) {
+	timeEl.innerHTML = `${time.getHours()}:${
+		time.getMinutes() < 10 ? `0${time.getMinutes()}` : time.getMinutes()
+	}`;
 	dateEl.innerHTML = `${new Intl.DateTimeFormat("pt-br", {
 		dateStyle: "long",
 	}).format(time)}`;
+}
+
+function analogClock(time) {
+	const hours = time.getHours() % 12;
+
+	const hourNeedleRotation = scale(hours, 0, 12, 0, 360);
+	const minutesNeedleRotation = scale(time.getMinutes(), 0, 59, 0, 360);
+	const secondsNeedleRotation = scale(time.getSeconds(), 0, 59, 0, 360);
+
+	hourEl.style.transform = `translate(-50%, -100%) rotate(${hourNeedleRotation}deg)`;
+	minutesEl.style.transform = `translate(-50%, -100%) rotate(${minutesNeedleRotation}deg)`;
+	secondEl.style.transform = `translate(-50%, -100%) rotate(${secondsNeedleRotation}deg)`;
+}
+
+function setTime() {
+	const time = new Date();
+
+	analogClock(time);
+	digitalClock(time);
 }
 
 setTime();

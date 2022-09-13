@@ -2,6 +2,7 @@ const canvas = document.getElementById("canvas");
 const increaseBtn = document.getElementById("increase");
 const decreaseBtn = document.getElementById("decrease");
 const sizeEl = document.getElementById("size");
+const sizeValue = document.getElementById("sizeValue");
 const colorEl = document.getElementById("color");
 const clearEl = document.getElementById("clear");
 const ctx = canvas.getContext("2d");
@@ -54,22 +55,11 @@ function drawLine(x1, y1, x2, y2) {
 }
 
 function updateSizeOnScreen() {
-	sizeEl.innerText = size;
+	sizeValue.innerText = size;
 }
 
-increaseBtn.addEventListener("click", () => {
-	size += 5;
-
-	if (size > 50) size = 50;
-
-	updateSizeOnScreen();
-});
-
-decreaseBtn.addEventListener("click", () => {
-	size -= 5;
-
-	if (size < 5) size = 5;
-
+sizeEl.addEventListener("input", (e) => {
+	size = e.target.value;
 	updateSizeOnScreen();
 });
 

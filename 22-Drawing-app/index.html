@@ -21,13 +21,27 @@
 			width="800"
 			height="800"></canvas>
 		<div class="toolbox">
-			<button id="decrease">-</button>
-			<span id="size">10</span>
-			<button id="increase">+</button>
-			<input
-				type="color"
-				id="color" />
-			<button id="clear">X</button>
+			<div class="size-container">
+				<input
+					type="range"
+					id="size"
+					value="10"
+					step="5"
+					min="5"
+					max="50" />
+				<span id="sizeValue">5</span>
+			</div>
+			<div class="color-container">
+				<input
+					type="color"
+					id="color" />
+				<span>Pick a color!</span>
+			</div>
+			<button
+				id="clear"
+				class="clear">
+				X
+			</button>
 		</div>
 		<script src="script.js"></script>
 	</body>
